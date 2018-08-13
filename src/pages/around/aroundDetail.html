@@ -1,0 +1,48 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>智能學堂</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding text-center>
+    <ng-container *ngIf="admin; else loading">
+        <ion-item text-center>
+            <img src="assets/imgs/icon.png">
+        </ion-item>
+        <ion-grid text-left class="performance">
+            <ion-row>
+                <ion-col col-4>姓名</ion-col>
+                <ion-col col-8>{{admin.member.name}}</ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col col-4>帳號</ion-col>
+                <ion-col col-8>{{admin.account}}</ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col col-4>經度</ion-col>
+                <ion-col col-8>{{admin.member.position.lat}}</ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col col-4>緯度</ion-col>
+                <ion-col col-8>{{admin.member.position.lng}}</ion-col>
+            </ion-row>
+            <br />
+            <!-- <ion-row *ngIf="mode == 'view'">
+                <ion-col col-4>學期成績</ion-col>
+                <ion-col col-8>{{student.performance.grade || "尚未評量"}}</ion-col>
+            </ion-row> -->
+            <br />
+        </ion-grid>
+        <!-- <button ion-button round *ngIf="mode == 'view' && (admin)?.role == 'manager'" (click)="toggleMode('modify')">評量</button> -->
+
+        <!-- <ion-item text-center *ngIf="mode == 'modify'">
+            <ion-label color="primary">學期成績</ion-label>
+            <ion-input type="number" [(ngModel)]="grade"></ion-input>
+        </ion-item> -->
+        <!-- <button ion-button round *ngIf="mode == 'modify'" [disabled]="!grade || grade < 0 || grade > 100 || !isValid(grade)" (click)="setGrade(student, grade)">評量</button>
+        <button ion-button round color="danger" *ngIf="mode == 'modify'" (click)="toggleMode('view')">取消</button> -->
+    </ng-container>
+    <ng-template #loading>
+        Loading...
+    </ng-template>
+</ion-content>

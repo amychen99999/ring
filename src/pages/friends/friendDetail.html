@@ -1,0 +1,48 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>智能學堂</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ng-container *ngIf="admin; else loading">
+        <ion-item text-center>
+            <img src="assets/imgs/icon.png">
+        </ion-item>
+        <ion-grid class="profile">
+            <ion-row>
+                <ion-col col-3>姓名</ion-col>
+                <ion-col col-9>{{admin.member.name}}</ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col col-3>帳號</ion-col>
+                <ion-col col-9>{{admin.account}}</ion-col>
+            </ion-row>
+            <br />
+            <ion-row>
+                <ion-col col-3>手機</ion-col>
+                <ion-col col-9>
+                    <a [href]="'tel:' + admin.member.phone">{{admin.member.phone}}</a>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col col-3>Email</ion-col>
+                <ion-col col-9>
+                    <a [href]="'mailto:' + admin.member.email">{{admin.member.email}}</a>
+                </ion-col>
+            </ion-row>
+            <!-- <ion-row>
+                <ion-col col-3>Line</ion-col>
+                <ion-col col-9>{{admin.member.lineId}}</ion-col>
+            </ion-row> -->
+            <br />
+            <!-- <ion-row>
+                <ion-col col-3>狀態</ion-col>
+                <ion-col col-9 item-end>{{(student.performance.actionState == 1) ? "實習中" : "離線"}}</ion-col>
+            </ion-row> -->
+        </ion-grid>
+    </ng-container>
+    <ng-template #loading>
+        Loading...
+    </ng-template>
+</ion-content>

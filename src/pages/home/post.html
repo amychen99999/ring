@@ -1,0 +1,34 @@
+
+<ion-header>
+    <ion-navbar>
+        <ion-title>公告</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ng-container *ngIf="postType; else loading">
+        <div *ngIf="logged && ((admin)?.role == 'manager' || ((admin)?.role == 'user' && postTypeName != 'notice'))">
+            <!-- <h5>編輯公告</h5> -->
+            <ion-textarea rows="3" [(ngModel)]="postMessage" [ngModelOptions]="{standalone: true}" placeholder="請輸入訊息"></ion-textarea>
+            <button ion-button color="secondary" round (click)="sendPostMessage()">發送公告</button>
+        </div>
+        <ion-grid class="profile">
+            <ion-row>
+                <!-- <ion-col col-3>文章</ion-col> -->
+                <ion-col col-9>{{postType.title}}公告</ion-col>
+                <ion-item *ngFor="let recieveMessage of recieveMessages">
+                    <ion-row>
+                        <ion-icon style="margin-right:5%;" name="contact"></ion-icon>
+                        <p>{{recieveMessage?.sender}}</p>
+                    </ion-row>
+                    <ion-card>
+                            <ion-card-content>{{recieveMessage?.message}}</ion-card-content>
+                    </ion-card>
+                </ion-item>
+            </ion-row>
+        </ion-grid>
+    </ng-container>
+    <ng-template #loading>
+        Loading...
+    </ng-template>
+</ion-content>

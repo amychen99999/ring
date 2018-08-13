@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1071362357164",
+    "firebase_url": "https://aroundme-e234d.firebaseio.com",
+    "project_id": "aroundme-e234d",
+    "storage_bucket": "aroundme-e234d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1071362357164:android:2ae8738a1c1f73ab",
+        "android_client_info": {
+          "package_name": "com.ilab.apps2018"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1071362357164-rskg5rrrpfpvfj359q6s3hkmab6hplbj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCKwkGQVzkOTEVk90cl0R7qsh_yBrAyFZQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,47 @@
+<ion-header>
+    <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+        <ion-title>附近</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content padding text-center>
+    <ion-list-header *ngIf="logged">
+        <!-- <h2 class="left">點閱率</h2>
+        <h2 class="right">距離</h2> -->
+    </ion-list-header>
+    <ion-list *ngIf="logged">
+        <ion-item *ngFor="let admin of admins; let index = index">
+            <ion-avatar item-start>
+                <ion-icon name="contact"></ion-icon>
+            </ion-avatar>
+            <ion-grid>
+                <ion-row>
+                    <ion-col>
+                        <h2>{{admin.account}}</h2>
+                        <p>{{GetDistance(lat, lng, admin.member.position.lat, admin.member.position.lng)}}m</p>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+            <ion-note item-end><ion-icon name="chatbubbles" (click)="contactChat(admin.account)"></ion-icon></ion-note>
+            <ion-note item-end><ion-icon name="add" (click)="addFriend(admin.member)"></ion-icon></ion-note>
+        </ion-item>
+        <!-- <p>Lat: {{ lat }}</p>
+        <p>Lng: {{ lng }}</p> -->
+        <button (click)="lookAround()">...</button>
+    </ion-list>
+    <div *ngIf="!logged" id="hint">
+        <ion-card text-left>
+            <ion-card-header>
+                <h1>歡迎使用~Ring~</h1>
+            </ion-card-header>
+            <ion-card-content>
+                <p>請點擊【設定】選單</p>
+                <p>完成登入手續</p>
+                <p>以開啟功能</p>
+            </ion-card-content>
+        </ion-card>
+
+    </div>
+</ion-content>

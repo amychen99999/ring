@@ -1,0 +1,36 @@
+<ion-header>
+    <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+        <ion-title>好友</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content padding>
+    <ion-list inset *ngIf="logged">
+        <ion-item *ngFor="let friend of friends">
+            <ion-avatar item-start>
+                <ion-icon name="contact" color="primary"></ion-icon>
+            </ion-avatar>
+            <h2>{{friend.name}}</h2>
+            <p>{{friend.account}}</p>
+            <ion-note item-end><ion-icon class="btnIcon" name="information-circle" (click)="goToPage(friend.account)"></ion-icon></ion-note>
+            <ion-note item-end><ion-icon class="btnIcon" name="chatbubbles" (click)="contactChat(friend.account)"></ion-icon></ion-note>
+            <ion-note item-end><ion-icon class="btnIcon" name="close" (click)="deleteFriend(friend.account)"></ion-icon></ion-note>
+            <!-- <ion-note item-end>{{(student.performance.actionState == 1) ? "實習中" : "離線"}}</ion-note> -->
+        </ion-item>
+    </ion-list>
+
+    <div *ngIf="!logged" id="hint">
+        <ion-card>
+            <ion-card-header>
+                <h1>歡迎使用~Ring~</h1>
+            </ion-card-header>
+            <ion-card-content>
+                <p>請點擊【設定】選單</p>
+                <p>完成登入手續</p>
+                <p>以開啟功能</p>
+            </ion-card-content>
+        </ion-card>
+    </div>
+</ion-content>

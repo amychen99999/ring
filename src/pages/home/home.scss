@@ -1,3 +1,26 @@
 page-home {
+ion-icon {
+        font-size: 30px;
+        color:#808080;
+    }
 
+    #hint {
+        widows: 100%;
+        position: relative; 
+        top: 20%;
+
+        h1 {
+            font-size: 30px;
+            font-weight: bold;
+        }
+        
+        p {
+            font-size: 16px;
+        }
+    }
+}
+
+#C{
+    position: fixed;
+    top: 0%;
 }

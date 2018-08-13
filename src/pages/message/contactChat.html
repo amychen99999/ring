@@ -1,0 +1,21 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>{{chatMember?.name}}</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content padding>
+    <ng-container *ngFor="let chatMessage of chatMessages">
+        <div [align]="(chatMessage.receiver == myAccount)? 'left' : 'right'">
+            <div class="message">
+                <div class="content">{{chatMessage.message}}</div>
+                <div class="timestamp">{{chatMessage.timestamp | date:'yyyy-MM-dd HH:mm':'+0800'}}</div>
+            </div>
+        </div>
+    </ng-container>
+</ion-content>
+
+<ion-footer>
+    <ion-textarea [(ngModel)]="chatMessage" [ngModelOptions]="{standalone: true}" rows="1" maxLength="500" placeholder="請輸入訊息"
+        class="userMessage"></ion-textarea>
+    <ion-icon name="send" class="sendIcon" (click)="sendChatMessage()"></ion-icon>
+</ion-footer>

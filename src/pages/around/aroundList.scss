@@ -1,0 +1,47 @@
+page-aroundList {
+    ion-icon {
+        font-size: 40px;
+    }
+
+    ion-badge {
+        font-size: 1.2em;
+    }
+
+    ion-list-header {
+        .left {
+            float: left;
+        }
+        .right {
+            float: right;
+        }
+    }
+
+    ion-grid {
+        ion-row {
+            margin: -0.2em 0;
+        }
+    }
+
+    ion-textarea {
+        border: 0.1em solid rgb(129, 129, 129);
+        border-radius: 1em;
+        padding: 0.2em 1em;
+        margin: 1em 0;
+        font-size: 1.2em;
+    }
+    
+    #hint {
+        widows: 100%;
+        position: relative;
+        top: 20%;
+
+        h1 {
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        p {
+            font-size: 16px;
+        }
+    }
+}

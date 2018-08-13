@@ -1,0 +1,23 @@
+page-post {
+    img {
+        width: 90px;
+        height: 90px;
+    }
+
+    div {
+
+        ion-textarea {
+            border: 0.1em solid rgb(129, 129, 129);
+            border-radius: 1em;
+            padding: 0.3em 0.6em;
+            margin: 1em 0;
+            font-size: 1.2em;
+        }
+    }
+
+    .profile {
+        font-size: 16px;
+        margin: 20px 0;
+    }
+
+}

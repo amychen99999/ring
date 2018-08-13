@@ -1,17 +1,36 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Home</ion-title>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>最新公告</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+<ion-content id="C" padding>
+  <ion-list inset *ngIf="logged">
+    <ion-item *ngFor="let index = index; let postType of postTypes" [navPush]="postPage" [navParams]="postType.typeName">
+      <ion-row>
+      <ion-icon style="margin-right:5%;" name={{postType.icon}}></ion-icon>
+      <h2>{{postType.title}}</h2>
+      </ion-row>
+      <p>{{postType.latestPost?.sender}}</p>
+      <ion-card>
+          <ion-card-content>{{postType.latestPost?.message}}</ion-card-content>
+      </ion-card>
+    </ion-item>
+  </ion-list>
+
+  <div *ngIf="!logged" id="hint">
+    <ion-card>
+      <ion-card-header>
+        <h1>歡迎使用~Ring~</h1>
+      </ion-card-header>
+      <ion-card-content>
+        <p>請點擊【設定】選單</p>
+        <p>完成登入手續</p>
+        <p>以開啟功能</p>
+      </ion-card-content>
+    </ion-card>
+  </div>
 </ion-content>

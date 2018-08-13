@@ -1,0 +1,32 @@
+page-contactList {
+    ion-icon {
+        font-size: 50px;
+    }
+
+    div {
+
+        ion-textarea {
+            border: 0.1em solid rgb(129, 129, 129);
+            border-radius: 1em;
+            padding: 0.3em 0.6em;
+            margin: 1em 0;
+            font-size: 1.2em;
+        }
+    }
+
+    #hint {
+        widows: 100%;
+        position: relative;
+        top: 20%;
+
+        h1 {
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        p {
+            font-size: 16px;
+        }
+    }
+
+}

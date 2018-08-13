@@ -1,1 +1,40 @@
-<ion-nav [root]="rootPage"></ion-nav>
+<ion-menu [content]="content">
+    <ion-header>
+        <ion-toolbar>
+            <ion-title>公告</ion-title>
+        </ion-toolbar>
+    </ion-header>
+    <ion-content>
+        <ion-list>
+            <button ion-item *ngFor="let postType of postTypes" (click)="goToPage(postType.typeName)" menuClose>
+                <ion-icon item-left name="{{postType.icon}}"></ion-icon>
+                <h2>{{postType.title}}</h2>
+            </button>
+        </ion-list>
+    </ion-content>
+</ion-menu>
+<!-- <ion-content class="tutorial-page">
+    <ion-slides pager #slidingItem>
+        <ion-slide *ngFor="let slide of slides" style="background-color: white">
+            <ion-toolbar>
+              <ion-buttons end>
+                <button ion-button color="primary" (click)="doSomething(slidingItem)">Skip</button>
+              </ion-buttons>
+            </ion-toolbar>
+            <img [src]="slide.image" class="slide-image"/>
+            <h2 class="slide-title" [innerHTML]="slide.title"></h2>
+            <p [innerHTML]="slide.description"></p>
+          </ion-slide>
+          <ion-slide style="background-color: white">
+            <ion-toolbar>
+            </ion-toolbar>
+            <img src="assets/imgs/icon.png" class="slide-image"/>
+            <h2 class="slide-title">Ready to Play?</h2>
+            <button ion-button large clear icon-end color="primary">
+              Continue
+              <ion-icon name="arrow-forward"></ion-icon>
+            </button>
+        </ion-slide>
+    </ion-slides>
+</ion-content> -->
+<ion-nav #content [root]="rootPage"></ion-nav>

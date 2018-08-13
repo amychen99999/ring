@@ -1,0 +1,59 @@
+<ion-header>
+    <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+        <ion-title>註冊</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content padding text-center>
+    <img src="assets/imgs/icon.png" id="icon" />
+
+    <ion-list no-lines *ngIf="!logged">
+        <ion-item>
+            <ion-label floating>姓名</ion-label>
+            <ion-input type="text" [(ngModel)]="registerInf.name"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>帳號</ion-label>
+            <ion-input type="text" [(ngModel)]="registerInf.account"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>Email</ion-label>
+            <ion-input type="email" [(ngModel)]="registerInf.email"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>手機(初始密碼)</ion-label>
+            <ion-input type="text" [(ngModel)]="registerInf.phone"></ion-input>
+        </ion-item>
+        <ion-item>
+            <div class="errorMessage" *ngIf="accountExist">{{errorMessage}}</div>
+        </ion-item>
+        <ion-item>
+            <button ion-button color="primary" block (click)="register()">確定</button>
+        </ion-item>
+        
+    </ion-list>
+
+    <ion-list no-lines *ngIf="logged">
+        <ion-item>
+            <ion-avatar>管理者</ion-avatar>
+            <p>{{(admin)?.member.name}}</p>
+        </ion-item>
+        <ion-item>
+            <ion-avatar>權限</ion-avatar>
+            <p>{{((admin)?.role == "manager") ? "經理" : "職員"}}</p>
+        </ion-item>
+        <ion-item>
+            <ion-avatar>電子郵件</ion-avatar>
+            <p>{{(admin)?.member.email}}</p>
+        </ion-item>
+        <ion-item>
+            <ion-avatar>電話</ion-avatar>
+            <p>{{(admin)?.member.phone}}</p>
+        </ion-item>
+        <button ion-button color="danger" block (click)="signOut()">登出</button>
+        <button ion-button color="primary" block (click)="resetPassword()">修改密碼</button>
+        <br />
+    </ion-list>
+</ion-content>
